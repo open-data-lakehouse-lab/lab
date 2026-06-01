@@ -12,7 +12,7 @@ The project is intended for the public domain and needs a clear strategy for its
 
 The project will be hosted on GitHub under the `open-data-lakehouse-lab` organization. All code, documentation, and issues will be public by default.
 
-We will use the MIT License for code and Markdown for documentation to ensure maximum accessibility and contribution ease.
+We will use the Apache License 2.0 for software assets and Creative Commons Attribution 4.0 International for documentation/content assets to ensure professional standards and maximum accessibility. Upstream dataset licenses remain independent.
 
 ## Consequences
 

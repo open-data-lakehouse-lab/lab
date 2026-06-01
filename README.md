@@ -18,6 +18,7 @@ This repository (`lab`) is the central governance repository. It contains:
 - [Architecture overview](ARCHITECTURE.md)
 - [Project principles](docs/governance/project-principles.md)
 - [Architecture Decision Records (ADRs)](docs/adr/)
+  - [ADR 0007: Project Licensing Strategy](docs/adr/0007-project-licensing-strategy.md)
 - [Contribution guidelines](CONTRIBUTING.md)
 
 ## Getting Started
@@ -26,4 +27,9 @@ Refer to the [M0 - Foundation](docs/planning/m0-foundation.md) milestone to see 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Unless otherwise noted:
+
+- Documentation, articles, diagrams, dataset metadata, data dictionaries, schemas, data contracts and written content are licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+- Software, scripts, Infrastructure as Code, SQL models, configuration files and executable assets are licensed under the [Apache License 2.0](LICENSE-CODE).
+
+Original upstream datasets, when referenced, remain governed by their original source licenses and terms.
