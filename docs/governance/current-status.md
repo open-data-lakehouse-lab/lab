@@ -6,15 +6,20 @@ This document provides a high-level overview of the current implementation statu
 
 The project has successfully implemented its first end-to-end local vertical slice using weather data.
 
-The first local E2E Weather MVP run has been verified successfully.
+The first local E2E Weather MVP run with Silver has been verified successfully.
 
 ### Implementation Summary
 
 - **Repository-specific CLIs**: Each core repository now has a CLI foundation.
 - **Local-first flow**: The entire stack can be run locally without cloud credentials.
 - **Dataset**: `meteocat-weather` is the first supported dataset.
-- **Data Layers**: Landing (JSON) and Bronze (JSONL) are implemented.
-- **Support services**: Local quality checks, orchestration, observability reports, and static dashboards are functional.
+- **Data Layers**:
+  - Landing JSON is implemented.
+  - Bronze JSONL is implemented.
+  - Silver JSONL foundation is implemented.
+- **Support services**:
+  - Local quality checks (including Silver quality validation) are functional.
+  - Orchestration, observability reports, and static dashboards are generated from the run.
 
 ### Status by Repository
 
@@ -36,12 +41,12 @@ The first local E2E Weather MVP run has been verified successfully.
 
 - **Not production-ready**: The current implementation is for lab/experimental use.
 - **No real cloud deployment**: AWS/Azure/GCP deployments are not yet implemented.
-- **Limited modeling**: Silver and Gold layers are not yet implemented.
+- **Limited modeling**: Silver exists as a local foundation, not final analytics model. Gold layers are not yet implemented.
 - **No local cloud emulators**: Integration with local cloud emulator candidates is planned for the next phase.
 
 ### Recommended Next Work
 
 1. Harden real API execution for `meteocat-weather`.
 2. Implement schema verification and data contract enforcement.
-3. Start Silver/Gold modeling definition.
+3. Start Gold modeling definition.
 4. Integrate Azure/AWS/GCP local lab integration into the MVP flow.

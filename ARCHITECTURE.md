@@ -12,9 +12,11 @@ flowchart LR
     B --> C[Landing Quality<br/>JSON validation]
     C --> D[Transformation<br/>bronze JSONL]
     D --> E[Bronze Quality<br/>JSONL validation]
-    E --> F[Orchestration<br/>run-summary.json]
-    F --> G[Observability<br/>JSON and Markdown reports]
-    G --> H[Dashboards<br/>static HTML]
+    E --> F[Silver Transformation<br/>silver JSONL]
+    F --> G[Silver Quality<br/>JSONL validation]
+    G --> H[Orchestration<br/>run-summary.json]
+    H --> I[Observability<br/>JSON and Markdown reports]
+    I --> J[Dashboards<br/>static HTML]
 ```
 
 ### Flow Details
@@ -22,15 +24,16 @@ flowchart LR
 - **Local-First**: The entire flow runs on a local machine without requiring cloud credentials or active cloud services.
 - **Landing Layer**: Data is ingested and stored in **JSON** format.
 - **Bronze Layer**: Data is transformed and stored in **JSONL** (JSON Lines) format.
-- **Quality**: Automated validation of JSON and JSONL files.
+- **Silver Layer**: Data is transformed into a foundation layer and stored in **JSONL** format.
+- **Quality**: Automated validation of JSON and JSONL files across Landing, Bronze and Silver.
 - **Orchestration**: Lightweight, subprocess-based execution generating a `run-summary.json`.
-- **Observability**: Generation of human-readable Markdown reports and machine-readable JSON summaries.
+- **Observability**: Generation of human-readable Markdown reports and machine-readable JSON summaries (including quality results).
 - **Dashboards**: Visualization of the results using static HTML pages.
 
 ### Limitations and Future Work
 
 - **Cloud Deployment**: Real cloud deployment (Azure, AWS, GCP) is not yet implemented.
-- **Modeling**: Silver and Gold modeling layers are not yet implemented.
+- **Modeling**: Silver exists as a local foundation. Gold modeling layers are not yet implemented.
 - **Storage Formats**: Parquet is not currently implemented but is planned for future evaluation in the Silver/Gold layers.
 - **Local Cloud Emulators**: Integration with local cloud emulator candidates is planned for the next milestone.
 

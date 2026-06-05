@@ -22,11 +22,13 @@ To implement a complete end-to-end data flow from source selection to visualizat
 1. **Dataset Catalog**: Selection of `meteocat-weather` dataset.
 2. **Ingestion**: Fetching data from source and saving it as landing JSON.
 3. **Quality (Landing)**: Validating landing JSON files.
-4. **Transformation**: Converting landing JSON to bronze JSONL.
+4. **Transformation (Bronze)**: Converting landing JSON to bronze JSONL.
 5. **Quality (Bronze)**: Validating bronze JSONL files.
-6. **Orchestration**: Running the flow and generating a `run-summary.json`.
-7. **Observability**: Generating Markdown and JSON reports based on the run summary and quality results.
-8. **Dashboards**: Generating a static HTML dashboard to visualize pipeline execution and observability metrics.
+6. **Transformation (Silver)**: Converting bronze JSONL to silver JSONL foundation.
+7. **Quality (Silver)**: Validating silver JSONL files.
+8. **Orchestration**: Running the flow and generating a `run-summary.json`.
+9. **Observability**: Generating Markdown and JSON reports based on the run summary and quality results.
+10. **Dashboards**: Generating a static HTML dashboard to visualize pipeline execution and observability metrics.
 
 ## Supported Dataset
 
@@ -40,29 +42,34 @@ To implement a complete end-to-end data flow from source selection to visualizat
 
 - **Landing**: JSON
 - **Bronze**: JSONL
+- **Silver**: JSONL
 - **Observability**: JSON and Markdown reports
 - **Dashboards**: Static HTML
 
 ## Local E2E validation
 
-The local Weather MVP vertical slice has been executed successfully.
+The local Weather MVP vertical slice has been executed successfully with Silver included.
 
 - The run used sample/offline ingestion mode.
 - The run did not require cloud credentials.
 - The run did not require external services.
-- The verified steps were:
+- The verified orchestration steps were:
     - ingestion
-    - landing quality
+    - quality-landing
     - transformation
-    - bronze quality
+    - quality-bronze
+    - transformation-silver
+    - quality-silver
 - Observability report generation and static dashboard rendering were successfully executed after the orchestration run.
 - Generated artifacts are reproducible and should not be committed.
+- The Silver layer is still a local foundation, not a final analytics model.
 
 ### Verified artifact paths (relative)
 
 ```text
 orchestration/workspace/runs/<run-id>/landing/landing/weather/meteocat/meteocat-weather/ingestion_date=<date>/sample.json
 orchestration/workspace/runs/<run-id>/bronze/bronze/weather/meteocat/stations-metadata/processing_date=<date>/records.jsonl
+orchestration/workspace/runs/<run-id>/silver/silver/weather/meteocat/stations/processing_date=<date>/records.jsonl
 orchestration/workspace/runs/<run-id>/reports/run-summary.json
 orchestration/workspace/observability/run-observability-report.json
 orchestration/workspace/observability/run-observability-report.md
@@ -73,7 +80,7 @@ orchestration/workspace/dashboard/index.html
 
 - **Not production-ready**: Intended for laboratory and development purposes.
 - **No real cloud deployment**: Currently restricted to local execution.
-- **No Silver/Gold modeling**: Only Landing and Bronze layers are implemented.
+- **No Gold modeling**: Only Landing, Bronze and Silver foundation layers are implemented.
 - **No local cloud emulator integration**: Integration with local cloud emulator candidates is not yet part of the main flow.
 - **No external observability stack**: Reports are currently local files.
 - **No advanced BI tool**: Dashboards are static HTML.
@@ -82,6 +89,6 @@ orchestration/workspace/dashboard/index.html
 
 - Hardening real API execution.
 - Implementing schema verification.
-- Designing and implementing Silver and Gold modeling layers.
+- Designing and implementing Gold modeling layers.
 - Integrating local cloud emulators into the flow.
 - Automated end-to-end CI/CD.
