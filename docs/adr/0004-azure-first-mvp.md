@@ -10,7 +10,7 @@ While the vision is multi-cloud, we need a starting point for the MVP to avoid o
 
 ## Decision
 
-The MVP will focus on an Azure-oriented local lab environment. This means we will prioritize tools and patterns that are common or easily translatable to Azure services, while keeping them local-friendly (e.g., using Azurite for storage simulation).
+The MVP will focus on an Azure-oriented local lab environment. This means we will prioritize tools and patterns that are common or easily translatable to Azure services, while keeping them local-friendly (e.g., using a local cloud emulator for storage simulation).
 
 ## Consequences
 

@@ -10,16 +10,33 @@ To provide a reproducible, technology-agnostic reference architecture for a mode
 
 ## Project Structure
 
-This repository (`lab`) is the central governance repository. It contains:
+This repository (`lab`) is the central governance repository. It acts as the project control plane and contains:
 
 - [Global vision](README.md)
 - [Roadmap](ROADMAP.md)
 - [Repository map](REPOSITORIES.md)
 - [Architecture overview](ARCHITECTURE.md)
 - [Project principles](docs/governance/project-principles.md)
+- [Current status](docs/governance/current-status.md)
 - [Architecture Decision Records (ADRs)](docs/adr/)
-  - [ADR 0007: Project Licensing Strategy](docs/adr/0007-project-licensing-strategy.md)
 - [Contribution guidelines](CONTRIBUTING.md)
+
+## Current Status
+
+The project has implemented its first **local Weather MVP vertical slice**.
+
+- **Selected Dataset**: `meteocat-weather` (Public weather data from Catalonia).
+- **Core Local Flow**:
+  - Dataset catalog selection.
+  - Landing JSON ingestion.
+  - Landing quality checks.
+  - Bronze JSONL transformation.
+  - Bronze quality checks.
+  - Orchestration run summary.
+  - Observability reports (JSON and Markdown).
+  - Static HTML dashboard.
+
+The flow is **local-first** and does not require cloud credentials. It is currently intended for development and exploration and is **not production-ready**. Real cloud deployment and local cloud emulator integration are planned for future milestones.
 
 ## Getting Started
 

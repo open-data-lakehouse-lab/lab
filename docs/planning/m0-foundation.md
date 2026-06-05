@@ -16,3 +16,12 @@ This milestone focuses on establishing the core governance and structure of the 
 - [x] Set up LICENSE, SECURITY, and CODE_OF_CONDUCT policies
 - [x] Create initial roadmap
 - [x] Map core and future repositories
+- [x] Central lab governance foundation
+- [x] Documentation site foundation
+- [x] Dataset catalog foundation
+- [x] Ingestion foundation
+- [x] Transformation foundation
+- [x] Quality foundation
+- [x] Orchestration foundation
+- [x] Observability foundation
+- [x] Dashboards foundation

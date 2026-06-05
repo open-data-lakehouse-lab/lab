@@ -2,20 +2,37 @@
 
 The Open Data Lakehouse Lab follows a modular architecture based on open standards and a multi-cloud strategy.
 
-## High-Level Data Flow
+## Current Local Flow
+
+The current implemented flow is **local-first** and focused on the Weather MVP.
 
 ```mermaid
 flowchart LR
-    ODS[Open Data Sources] --> Ingestion[Ingestion]
-    Ingestion --> Landing[Landing / Raw]
-    Landing --> Bronze[Bronze]
-    Bronze --> Silver[Silver]
-    Silver --> Gold[Gold]
-    Gold --> Dashboards[Dashboards]
-    Gold --> API[Analytics API]
-    Gold --> Web[Web Portal]
-    Gold --> Docs[Public Documentation]
+    A[Dataset Catalog<br/>meteocat-weather selected] --> B[Ingestion<br/>landing JSON]
+    B --> C[Landing Quality<br/>JSON validation]
+    C --> D[Transformation<br/>bronze JSONL]
+    D --> E[Bronze Quality<br/>JSONL validation]
+    E --> F[Orchestration<br/>run-summary.json]
+    F --> G[Observability<br/>JSON and Markdown reports]
+    G --> H[Dashboards<br/>static HTML]
 ```
+
+### Flow Details
+
+- **Local-First**: The entire flow runs on a local machine without requiring cloud credentials or active cloud services.
+- **Landing Layer**: Data is ingested and stored in **JSON** format.
+- **Bronze Layer**: Data is transformed and stored in **JSONL** (JSON Lines) format.
+- **Quality**: Automated validation of JSON and JSONL files.
+- **Orchestration**: Lightweight, subprocess-based execution generating a `run-summary.json`.
+- **Observability**: Generation of human-readable Markdown reports and machine-readable JSON summaries.
+- **Dashboards**: Visualization of the results using static HTML pages.
+
+### Limitations and Future Work
+
+- **Cloud Deployment**: Real cloud deployment (Azure, AWS, GCP) is not yet implemented.
+- **Modeling**: Silver and Gold modeling layers are not yet implemented.
+- **Storage Formats**: Parquet is not currently implemented but is planned for future evaluation in the Silver/Gold layers.
+- **Local Cloud Emulators**: Integration with local cloud emulator candidates is planned for the next milestone.
 
 ## Architecture Principles
 
