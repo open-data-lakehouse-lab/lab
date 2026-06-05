@@ -43,6 +43,32 @@ To implement a complete end-to-end data flow from source selection to visualizat
 - **Observability**: JSON and Markdown reports
 - **Dashboards**: Static HTML
 
+## Local E2E validation
+
+The local Weather MVP vertical slice has been executed successfully.
+
+- The run used sample/offline ingestion mode.
+- The run did not require cloud credentials.
+- The run did not require external services.
+- The verified steps were:
+    - ingestion
+    - landing quality
+    - transformation
+    - bronze quality
+- Observability report generation and static dashboard rendering were successfully executed after the orchestration run.
+- Generated artifacts are reproducible and should not be committed.
+
+### Verified artifact paths (relative)
+
+```text
+orchestration/workspace/runs/<run-id>/landing/landing/weather/meteocat/meteocat-weather/ingestion_date=<date>/sample.json
+orchestration/workspace/runs/<run-id>/bronze/bronze/weather/meteocat/stations-metadata/processing_date=<date>/records.jsonl
+orchestration/workspace/runs/<run-id>/reports/run-summary.json
+orchestration/workspace/observability/run-observability-report.json
+orchestration/workspace/observability/run-observability-report.md
+orchestration/workspace/dashboard/index.html
+```
+
 ## Current Limitations
 
 - **Not production-ready**: Intended for laboratory and development purposes.
