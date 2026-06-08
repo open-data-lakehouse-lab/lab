@@ -48,12 +48,21 @@ To implement a complete end-to-end data flow from source selection to visualizat
 
 ## Local E2E validation
 
-The local Weather MVP vertical slice has been executed successfully with Silver included.
+The local Weather MVP vertical slice has been executed successfully in multi-resource mode with Silver included.
 
+- The run used `--resource all`.
 - The run used sample/offline ingestion mode.
 - The run did not require cloud credentials.
 - The run did not require external services.
-- The verified orchestration steps were:
+- The verified resources were:
+  - `stations-metadata`
+  - `variables-metadata`
+  - `measured-variable`
+- The verified Silver mappings were:
+  - `stations-metadata -> stations`
+  - `variables-metadata -> variables`
+  - `measured-variable -> measurements`
+- The verified orchestration steps were executed for each resource:
     - ingestion
     - quality-landing
     - transformation
@@ -69,7 +78,11 @@ The local Weather MVP vertical slice has been executed successfully with Silver 
 ```text
 orchestration/workspace/runs/<run-id>/landing/landing/weather/meteocat/meteocat-weather/ingestion_date=<date>/sample.json
 orchestration/workspace/runs/<run-id>/bronze/bronze/weather/meteocat/stations-metadata/processing_date=<date>/records.jsonl
+orchestration/workspace/runs/<run-id>/bronze/bronze/weather/meteocat/variables-metadata/processing_date=<date>/records.jsonl
+orchestration/workspace/runs/<run-id>/bronze/bronze/weather/meteocat/measured-variable/processing_date=<date>/records.jsonl
 orchestration/workspace/runs/<run-id>/silver/silver/weather/meteocat/stations/processing_date=<date>/records.jsonl
+orchestration/workspace/runs/<run-id>/silver/silver/weather/meteocat/variables/processing_date=<date>/records.jsonl
+orchestration/workspace/runs/<run-id>/silver/silver/weather/meteocat/measurements/processing_date=<date>/records.jsonl
 orchestration/workspace/runs/<run-id>/reports/run-summary.json
 orchestration/workspace/observability/run-observability-report.json
 orchestration/workspace/observability/run-observability-report.md

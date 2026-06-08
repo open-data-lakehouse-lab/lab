@@ -36,8 +36,11 @@ First local vertical slice implemented.
 - [x] Silver JSONL transformation foundation
 - [x] Local quality checks
 - [x] Silver quality validation
-- [x] Local orchestration foundation
-- [x] Local E2E run with Silver verified
+- [x] Multi-resource local orchestration
+- [x] Multi-resource local E2E run with Silver verified
+- [x] `stations-metadata -> stations`
+- [x] `variables-metadata -> variables`
+- [x] `measured-variable -> measurements`
 - [x] Local observability reports
 - [x] Static local dashboard
 - [x] Documentation site updated

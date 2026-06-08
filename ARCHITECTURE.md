@@ -4,7 +4,7 @@ The Open Data Lakehouse Lab follows a modular architecture based on open standar
 
 ## Current Local Flow
 
-The current implemented flow is **local-first** and focused on the Weather MVP.
+The current local data flow supports multi-resource execution for the supported Meteocat resources.
 
 ```mermaid
 flowchart LR
@@ -18,6 +18,14 @@ flowchart LR
     H --> I[Observability<br/>JSON and Markdown reports]
     I --> J[Dashboards<br/>static HTML]
 ```
+
+### Resource Mapping
+
+| Resource | Silver entity |
+| --- | --- |
+| `stations-metadata` | `stations` |
+| `variables-metadata` | `variables` |
+| `measured-variable` | `measurements` |
 
 ### Flow Details
 

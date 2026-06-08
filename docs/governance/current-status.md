@@ -6,7 +6,7 @@ This document provides a high-level overview of the current implementation statu
 
 The project has successfully implemented its first end-to-end local vertical slice using weather data.
 
-The first local E2E Weather MVP run with Silver has been verified successfully.
+The first local multi-resource E2E Weather MVP run with Silver has been verified successfully.
 
 ### Implementation Summary
 
@@ -15,11 +15,12 @@ The first local E2E Weather MVP run with Silver has been verified successfully.
 - **Dataset**: `meteocat-weather` is the first supported dataset.
 - **Data Layers**:
   - Landing JSON is implemented.
-  - Bronze JSONL is implemented.
-  - Silver JSONL foundation is implemented.
+  - Bronze JSONL is implemented for the supported Meteocat resources.
+  - Silver JSONL foundation is implemented for stations, variables and measurements.
 - **Support services**:
   - Local quality checks (including Silver quality validation) are functional.
-  - Orchestration, observability reports, and static dashboards are generated from the run.
+  - Observability reports and static dashboard are generated from the run.
+  - Multi-resource orchestration is implemented for the current Meteocat resources.
 
 ### Status by Repository
 
