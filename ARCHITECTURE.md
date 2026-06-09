@@ -4,12 +4,12 @@ The Open Data Lakehouse Lab follows a modular architecture based on open standar
 
 ## Current Local Flow
 
-The current local data flow supports multi-resource execution for the supported Meteocat resources.
+The current local data flow supports multi-resource execution for the supported Meteocat resources and optional landing contract validation.
 
 ```mermaid
 flowchart LR
     A[Dataset Catalog<br/>meteocat-weather selected] --> B[Ingestion<br/>landing JSON]
-    B --> C[Landing Quality<br/>JSON validation]
+    B --> C[Landing Quality<br/>JSON & optional contracts]
     C --> D[Transformation<br/>bronze JSONL]
     D --> E[Bronze Quality<br/>JSONL validation]
     E --> F[Silver Transformation<br/>silver JSONL]
@@ -34,6 +34,8 @@ flowchart LR
 - **Bronze Layer**: Data is transformed and stored in **JSONL** (JSON Lines) format.
 - **Silver Layer**: Data is transformed into a foundation layer and stored in **JSONL** format.
 - **Quality**: Automated validation of JSON and JSONL files across Landing, Bronze and Silver.
+    - Default mode validates basic landing JSON quality.
+    - Optional contract mode validates landing JSON against draft internal contracts and permissive schemas from `datasets-catalog`.
 - **Orchestration**: Lightweight, subprocess-based execution generating a `run-summary.json`.
 - **Observability**: Generation of human-readable Markdown reports and machine-readable JSON summaries (including quality results).
 - **Dashboards**: Visualization of the results using static HTML pages.

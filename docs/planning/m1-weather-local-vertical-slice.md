@@ -50,7 +50,11 @@ To implement a complete end-to-end data flow from source selection to visualizat
 
 The local Weather MVP vertical slice has been executed successfully in multi-resource mode with Silver included.
 
-- The run used `--resource all`.
+The run has been verified both without contracts and with optional landing contract validation.
+
+- Verified command modes:
+    - `--resource all`
+    - `--resource all --use-contracts`
 - The run used sample/offline ingestion mode.
 - The run did not require cloud credentials.
 - The run did not require external services.
@@ -63,12 +67,15 @@ The local Weather MVP vertical slice has been executed successfully in multi-res
   - `variables-metadata -> variables`
   - `measured-variable -> measurements`
 - The verified orchestration steps were executed for each resource:
-    - ingestion
-    - quality-landing
-    - transformation
-    - quality-bronze
-    - transformation-silver
-    - quality-silver
+  - ingestion
+  - quality-landing
+  - transformation
+  - quality-bronze
+  - transformation-silver
+  - quality-silver
+- When `--use-contracts` is enabled, `quality-landing` validates landing JSON against the draft internal contracts and permissive schemas from `datasets-catalog`.
+- Contract validation is opt-in.
+- Default orchestration behavior remains unchanged.
 - Observability report generation and static dashboard rendering were successfully executed after the orchestration run.
 - Generated artifacts are reproducible and should not be committed.
 - The Silver layer is still a local foundation, not a final analytics model.

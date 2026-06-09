@@ -32,12 +32,16 @@ First local vertical slice implemented.
 **Completed:**
 - [x] `meteocat-weather` dataset selected
 - [x] Landing JSON ingestion foundation
+- [x] Draft landing contracts and permissive schemas
 - [x] Bronze JSONL transformation foundation
 - [x] Silver JSONL transformation foundation
 - [x] Local quality checks
+- [x] Optional landing contract validation in quality
 - [x] Silver quality validation
 - [x] Multi-resource local orchestration
+- [x] Optional contract validation integrated into orchestration
 - [x] Multi-resource local E2E run with Silver verified
+- [x] Multi-resource local E2E run with contracts verified
 - [x] `stations-metadata -> stations`
 - [x] `variables-metadata -> variables`
 - [x] `measured-variable -> measurements`
@@ -50,7 +54,8 @@ First local vertical slice implemented.
 
 **Pending:**
 - [ ] Real API execution hardening
-- [ ] Schema verification
+- [ ] Real source payload verification
+- [ ] Schema verification hardening
 - [ ] Silver model hardening
 - [ ] Gold modeling
 - [ ] Cloud/local emulator integration
