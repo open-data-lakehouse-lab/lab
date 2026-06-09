@@ -51,9 +51,13 @@ First local vertical slice implemented.
 - [x] Local E2E run verified
 - [x] Observability report generated from real local run summary
 - [x] Static dashboard generated from observability report
+- [x] Meteocat real API ingestion hardening
+- [x] Configurable timeout and retry settings
+- [x] Connector-specific error handling
+- [x] Mocked tests for HTTP errors, timeouts and invalid JSON
 
 **Pending:**
-- [ ] Real API execution hardening
+- [ ] Real live API verification
 - [ ] Real source payload verification
 - [ ] Schema verification hardening
 - [ ] Silver model hardening

@@ -28,7 +28,7 @@ The project has implemented its first **local Weather MVP vertical slice**.
 - **Selected Dataset**: `meteocat-weather` (Public weather data from Catalonia).
 - **Core Local Flow**:
   - Dataset catalog selection.
-  - Landing JSON ingestion.
+  - Landing JSON ingestion (Sample mode by default, hardened opt-in real API mode).
   - Landing quality checks.
   - Bronze JSONL transformation.
   - Bronze quality checks.

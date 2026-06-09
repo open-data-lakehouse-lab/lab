@@ -9,7 +9,7 @@ The Open Data Lakehouse Lab is organized as a multi-repository project.
 | `lab` | Central governance, roadmap, architecture, and ADRs. | Foundation implemented |
 | `open-data-lakehouse-lab.github.io` | Project documentation website. | Foundation implemented |
 | `datasets-catalog` | Documentation and metadata for public datasets. | Local MVP slice implemented with draft landing contracts and schemas. |
-| `ingestion` | Data ingestion pipelines and logic. | Local MVP slice implemented |
+| `ingestion` | Data ingestion pipelines and logic. | Meteocat sample mode and hardened opt-in real API mode. |
 | `transformation` | Data transformation logic for the Lakehouse. | Local MVP slice implemented |
 | `quality` | Data quality checks and monitoring. | Local MVP slice implemented with optional landing contract/schema validation. |
 | `orchestration` | Workflow management and scheduling. | Local MVP slice implemented with multi-resource Weather workflow and optional contract validation. |

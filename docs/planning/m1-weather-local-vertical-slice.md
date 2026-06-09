@@ -96,6 +96,19 @@ orchestration/workspace/observability/run-observability-report.md
 orchestration/workspace/dashboard/index.html
 ```
 
+### Real API ingestion hardening
+
+The Meteocat real API ingestion mode has been hardened:
+
+- Hardened real mode exists as an opt-in capability.
+- Sample/offline mode remains the default for local E2E validation.
+- Real mode requires `METEOCAT_API_KEY` (not committed).
+- Configurable timeout (`METEOCAT_TIMEOUT_SECONDS`) and retry (`METEOCAT_MAX_RETRIES`) settings.
+- Automatic retries for transient failures (HTTP 429, 500, 502, 503, 504 and timeouts).
+- Clear error handling for non-transient failures (HTTP 400, 401, 403, 404) and invalid JSON.
+- Tests use mocked HTTP and do not require real network or API keys.
+- Live API verification remains future work.
+
 ## Current Limitations
 
 - **Not production-ready**: Intended for laboratory and development purposes.
@@ -107,7 +120,7 @@ orchestration/workspace/dashboard/index.html
 
 ## Next Steps
 
-- Hardening real API execution.
+- Live API verification.
 - Implementing schema verification.
 - Designing and implementing Gold modeling layers.
 - Integrating local cloud emulators into the flow.

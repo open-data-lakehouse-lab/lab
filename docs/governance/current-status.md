@@ -15,6 +15,13 @@ The first local multi-resource E2E Weather MVP run with Silver and optional land
 - **Dataset**: `meteocat-weather` is the first supported dataset.
 - **Data Layers**:
   - Landing JSON is implemented.
+  - Ingestion: Meteocat real API ingestion mode has been hardened, while sample/offline mode remains the default.
+    - Real mode is opt-in and requires `METEOCAT_API_KEY`.
+    - Hardening includes configurable timeout/retry settings.
+    - Transient failures (429, 500, 502, 503, 504, timeout) are retried.
+    - Non-transient client errors (400, 401, 403, 404) are not retried.
+    - Invalid JSON fails clearly.
+    - Tests are mocked and do not require real network/API keys.
   - Draft landing contracts and permissive schemas exist in `datasets-catalog`.
   - Bronze JSONL is implemented for the supported Meteocat resources.
   - Silver JSONL foundation is implemented for stations, variables and measurements.
@@ -31,7 +38,7 @@ The first local multi-resource E2E Weather MVP run with Silver and optional land
 | ---------- | ------ | ----- |
 | `lab` | Foundation implemented | |
 | `datasets-catalog` | Local MVP slice implemented | Draft landing contracts and schemas. |
-| `ingestion` | Local MVP slice implemented | |
+| `ingestion` | Local MVP slice implemented | Meteocat sample mode and hardened opt-in real API mode. |
 | `transformation` | Local MVP slice implemented | |
 | `quality` | Local MVP slice implemented | Optional landing contract/schema validation. |
 | `orchestration` | Local MVP slice implemented | Optional contract validation integration. |
@@ -48,11 +55,12 @@ The first local multi-resource E2E Weather MVP run with Silver and optional land
 - **Limited modeling**: Silver exists as a local foundation, not final analytics model. Gold layers are not yet implemented.
 - **No local cloud emulators**: Integration with local cloud emulator candidates is planned for the next phase.
 - **Contracts are draft**: Internal and permissive schemas, not official upstream contracts.
-- **Sample/offline ingestion**: Still does not prove real source semantics.
+- **Sample/offline ingestion remains default**: Still the validated E2E mode unless otherwise stated.
+- **No real live API verification**: Real API execution hardening is implemented but not yet verified against live API (future work).
 
 ### Recommended Next Work
 
-1. Harden real API execution for `meteocat-weather`.
+1. Live API verification for `meteocat-weather`.
 2. Implement schema verification and data contract enforcement.
 3. Start Gold modeling definition.
 4. Integrate Azure/AWS/GCP local lab integration into the MVP flow.

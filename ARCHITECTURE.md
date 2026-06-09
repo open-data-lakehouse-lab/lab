@@ -30,7 +30,10 @@ flowchart LR
 ### Flow Details
 
 - **Local-First**: The entire flow runs on a local machine without requiring cloud credentials or active cloud services.
-- **Landing Layer**: Data is ingested and stored in **JSON** format.
+- **Landing Layer**: Ingestion supports **sample/offline mode as default** and **hardened opt-in real API mode**. Data is stored in **JSON** format.
+    - Real mode is opt-in and requires a `METEOCAT_API_KEY`.
+    - Real mode includes configurable timeout, retry mechanisms, and connector-specific error handling.
+    - Real mode requires external API access, so it is not part of the default offline E2E.
 - **Bronze Layer**: Data is transformed and stored in **JSONL** (JSON Lines) format.
 - **Silver Layer**: Data is transformed into a foundation layer and stored in **JSONL** format.
 - **Quality**: Automated validation of JSON and JSONL files across Landing, Bronze and Silver.
